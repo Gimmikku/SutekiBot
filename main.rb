@@ -5,7 +5,7 @@ discord_bot = Discordrb::Commands::CommandBot.new token: '<insert token here>', 
 
 irc_bot = Cinch::Bot.new do
   configure do |c|
-    c.server = "<irc server>
+    c.server = "<irc server>"
     c.channels = ["<channels>"]
     c.nick = "<bot name>"
   end
