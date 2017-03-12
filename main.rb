@@ -18,7 +18,7 @@ irc_bot = Cinch::Bot.new do
 
   discord_bot.message(in: <channel id>) do |event, *args1|
     content = event.message.content
-    event.message.mentions.each{|user| content = content.gsub("@" + user.id.to_s, "@" + user.username)}
+    event.message.mentions.each{|user| content = content.gsub("<@" + user.id.to_s + ">", "@" + user.username)}
     if event.message.attachments.empty?
       Channel(irc_channel).send(Format(@colours.sample(random: Random.new(event.user.id.to_i)), "\<" + event.user.name + "\> ") + content)
     else
